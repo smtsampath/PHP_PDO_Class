@@ -1,4 +1,4 @@
-	<?php
+	<?php 
 
 		# Load debug mode
 		include("environment_variables.php");
