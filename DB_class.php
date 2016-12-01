@@ -64,7 +64,7 @@ class Database {
                 error_log($e->getMessage());
                 $err = "Error Connecting To The Server";
             }
-            throw new ErrorCodeException($err);
+            throw new Exception($err);
         }
     }
 
@@ -124,9 +124,16 @@ class Database {
             # Execute SQL
             $this->stmt->execute();
         } catch (PDOException $e) {
-            # Return ErroCode Exception
-            $err = ErrorCode::create(ErrorCode::DATABASE_ERROR, $e->getMessage());
-            throw new ErrorCodeException($err);
+            # Return Exception
+            if(DEBUG) { # if debug mode is True
+                $err = $e->getMessage();
+            } else {
+                # Send error message to the server log
+                error_log($e->getMessage());
+                $err = "Error Connecting To The Server";
+            }
+            throw new Exception($err);
+        }
         }
 
         # Reset the parameters
@@ -227,8 +234,8 @@ class Database {
     }
 
     /**
-     *  Starts the transaction
-     *  @return boolean, true on success or false on failure
+     * Starts the transaction
+     * @return boolean, true on success or false on failure
      */
     public function beginTransaction() {
         return $this->pdo->beginTransaction();
