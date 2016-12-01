@@ -3,10 +3,6 @@ PHP PDO Database Class
 
 A database class for PHP-MySQL which uses the PDO extension.
 
-Everytime an exception is thrown by the database class a log file gets created or modified.
-
-The log file is a simple plain text file with the current date('year-month-day') as filename.
-
 ## Examples
 
 #### Insert Data
