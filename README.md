@@ -12,7 +12,7 @@ The log file is a simple plain text file with the current date('year-month-day')
 #### Insert Data
 
 ```php
-<?php
+
 $db = DB_Class::getInstance();
 $db->bind("name", $name);
 $db->bind("email", $email);
@@ -25,14 +25,14 @@ $id = $db->lastInsertId();
 
 #### Fetch single row
 ```php
-<?php
+$db = DB_Class::getInstance();
 $db->bind("id", $id);
 $db->query("SELECT * FROM users WHERE id = :id");
 $result = $db->single();
 ```
 #### Fetch All
 ```php
-<?php
+$db = DB_Class::getInstance();
 $db->bind("active", 1);
 $db->query("SELECT * FROM users WHERE is_active: active");
 $results = $db->resultset();
