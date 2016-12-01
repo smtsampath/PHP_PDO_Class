@@ -35,7 +35,7 @@ $result = $db->single();
 <?php
 $db->bind("active", 1);
 $db->query("SELECT * FROM users WHERE is_active: active");
-$result = $db->resultset();
+$results = $db->resultset();
 ```
 
 More about PDO : http://php.net/manual/en/book.pdo.php
