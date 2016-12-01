@@ -7,7 +7,7 @@
 
 require_once 'info.inc.php';
 
-class Database {
+class DB_class {
 
     public static $m_pInstance;     # @object, Store the single instance of database
     private $host = DB_HOST;        # database server
@@ -271,7 +271,7 @@ class Database {
      */
     public static function getInstance() {
         if (!self::$m_pInstance) {
-            self::$m_pInstance = new Database();
+            self::$m_pInstance = new DB_class();
         }
         return self::$m_pInstance;
     }
